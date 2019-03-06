@@ -35,17 +35,17 @@ def is_bst(root):
         if node is None:
             return True
 
-        if left!=None and node.data<left.data:
+        if (left is not None) and node.data<left.data:
             return False
 
-        if right!=None and node.data>right.data:
+        if (right is not None) and node.data>right.data:
             return False
 
         return _is_bst(node.left, left, node)\
                 and _is_bst(node.right, node, right)
 
     if root is None:
-        return True
+        raise ValueError('root cannot be None')
 
     return _is_bst(root)
 
@@ -149,7 +149,7 @@ def is_bin_tree(root):
             else:
                 return False
 
-            #print("{} ".format(current_node.data)) debug info
+            #print("{} ".format(current_node.data)) #debug info
             current_node = current_node.right
     return True
 
